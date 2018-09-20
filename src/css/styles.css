@@ -21,7 +21,8 @@ body {
   color: #112f6b;
   transition: color 0.2s;
 }
-.navbar-light .navbar-nav .active > .nav-link {
+
+.navbar-light .navbar-nav .nav-link.active {
   background-color: rgb(233, 233, 233);
 }
 
