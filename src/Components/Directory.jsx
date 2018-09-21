@@ -19,23 +19,17 @@ class Directory extends Component {
   getMembers() {
     axios
       .get(
-        "https://randomuser.me/api/?results=10&inc=name,location,email,cell,picture&nat=us"
+        "https://randomuser.me/api/?results=40&inc=name,location,email,cell,picture&nat=us"
       )
       .then(response => {
         this.setState({
           members: response.data.results
         });
-        console.log(this.state);
       });
   }
 
   handleOnChange(value) {
-    let members = this.state.members.filter(
-      member => member.name.first == value
-    );
-    console.log(members);
     this.setState({
-      members: members,
       term: value
     });
   }
@@ -47,7 +41,7 @@ class Directory extends Component {
           term={this.state.term}
           onChange={this.handleOnChange.bind(this)}
         />
-        <Members members={this.state.members} />
+        <Members members={this.state.members} term={this.state.term} />
       </React.Fragment>
     );
   }
